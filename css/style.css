@@ -96,17 +96,13 @@ a {
 
 .welcome-message {
     font-style: italic;
-    font-size: 16px;
+    font-size: 14px;
     color: #999;
-    line-height: 28px;
 }
-
-/*.default-text {
-  color: #000;
-}*/
 
 #skills, .default-text {
     color: #999;
+    font-size: 14px;
 }
 
 .gray {
@@ -119,7 +115,6 @@ a {
     color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
     color: #38cf97;
     font-weight: 400;
@@ -144,7 +139,7 @@ ul {
 .biopic {
     float: left;
     padding: 10px;
-    width: 200px;
+    width: 250px;
     display: none;
 }
 
@@ -167,12 +162,20 @@ span {
 @media only screen and (max-width: 1024px) {
     #lets-connect {
         margin-top: 5%;
+    }
+
+    #topContacts {
+        font-size: 13px;
     };
 }
 
 @media only screen and (max-width:900px) {
     .biopic {
-        width: 175px;
+        width: 220px;
+    }
+
+    .welcome-message {
+        font-size: 13px;
     };
 }
 
@@ -182,11 +185,24 @@ span {
     }
 
     .biopic {
-        width: 150px;
+        width: 200px;
     }
 
     .welcome-message {
         display: none;
+    }
+
+    #skills-h3, h3 {
+        font-size: 15px;
+        padding-left: 0;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 30px;
     };
 }
 
@@ -203,8 +219,7 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
-    #skills-h3,
-  .biopic {
+    .biopic {
         display: block;
     };
 }
