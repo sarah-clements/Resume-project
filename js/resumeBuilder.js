@@ -128,7 +128,7 @@ var education = {
     "onlineCourses": [{
         "title": "Front-end Web Developer Nanodegree",
         "school": "Udacity",
-        "date": "May 2016",
+        "date": "May 2016 - July 2016",
         "url": "www.udacity.com/"
     }],
 
@@ -160,7 +160,6 @@ var education = {
     }
 };
 education.display();
-
 // JQuery effects
 
 // Internationalize name
