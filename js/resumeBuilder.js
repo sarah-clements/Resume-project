@@ -1,4 +1,4 @@
-
+var data = "%data%";
 var bio = {
     "name": "Sarah A Clements",
     "role": "Web Developer",
@@ -11,25 +11,25 @@ var bio = {
     },
     "welcomeMessage": "\"Character - the willingness to accept responsibility for one's own life - is the source from which self-respect springs.\" - Joan Didion",
     "skills": ["html5", "CSS", "Javascript", "Adobe CreativeSuite"],
-    "bioPic": "images/Professionalpic1.jpg",
+    "biopic": "images/Professionalpic1.jpg",
 
     display: function() {
-        var formattedName = HTMLheaderName.replace("%data%", bio.name);
-        var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+        var formattedName = HTMLheaderName.replace(data, bio.name);
+        var formattedRole = HTMLheaderRole.replace(data, bio.role);
         var formattedNameRole = formattedName + formattedRole;
-        var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-        var formattedwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-        var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-        var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-        var formattedLinkedIn = HTMLlinkedIn.replace("%data%", bio.contacts.linkedIn);
-        var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+        var formattedbioPic = HTMLbioPic.replace(data, bio.bioPic);
+        var formattedwelcomeMsg = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
+        var formattedMobile = HTMLmobile.replace(data, bio.contacts.mobile);
+        var formattedEmail = HTMLemail.replace(data, bio.contacts.email);
+        var formattedGithub = HTMLgithub.replace(data, bio.contacts.github);
+        var formattedLinkedIn = HTMLlinkedIn.replace(data, bio.contacts.linkedIn);
+        var formattedLocation = HTMLlocation.replace(data, bio.contacts.location);
 
         $("#header").prepend(formattedNameRole).append(formattedbioPic, formattedwelcomeMsg, HTMLskillsStart);
         $("#topContacts").append(formattedLocation, formattedLinkedIn, formattedGithub, formattedEmail, formattedMobile);
 
         bio.skills.forEach(function(skill) {
-            var formattedSkills = HTMLskills.replace("%data%", skill);
+            var formattedSkills = HTMLskills.replace(data, skill);
             $("#header").append(formattedSkills);
         });
         $("#footerContacts").append(formattedGithub, formattedEmail, formattedLinkedIn);
@@ -69,12 +69,12 @@ var work = {
         work.jobs.forEach(function(item) {
             $("#workExperience").append(HTMLworkStart);
 
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", item.employer);
-            var formattedTitle = HTMLworkTitle.replace("%data%", item.title);
+            var formattedEmployer = HTMLworkEmployer.replace(data, item.employer);
+            var formattedTitle = HTMLworkTitle.replace(data, item.title);
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
-            var formattedDates = HTMLworkDates.replace("%data%", item.dates);
-            var formattedLocation = HTMLworkLocation.replace("%data%", item.location);
-            var formattedDescription = HTMLworkDescription.replace("%data%", item.description);
+            var formattedDates = HTMLworkDates.replace(data, item.dates);
+            var formattedLocation = HTMLworkLocation.replace(data, item.location);
+            var formattedDescription = HTMLworkDescription.replace(data, item.description);
             $(".work-entry:last").append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription);
         });
     }
@@ -82,7 +82,7 @@ var work = {
 work.display();
 
 var projects = {
-    "projectsArray": [{
+    "projects": [{
         "title": "Portfolio",
         "date": "May 2016",
         "description": "Portfolio of Udacity projects",
@@ -92,14 +92,14 @@ var projects = {
     display: function() {
         projects.projectsArray.forEach(function(item) {
             $("#projects").append(HTMLprojectStart);
-            var formattedProjectTitle = HTMLprojectTitle.replace("%data%", item.title);
-            var formattedProjectDates = HTMLprojectDates.replace("%data%", item.date);
-            var formattedProjectDescription = HTMLprojectDescription.replace("%data%", item.description);
+            var formattedProjectTitle = HTMLprojectTitle.replace(data, item.title);
+            var formattedProjectDates = HTMLprojectDates.replace(data, item.date);
+            var formattedProjectDescription = HTMLprojectDescription.replace(data, item.description);
             $(".project-entry:last").append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
 
             if (item.images.length > 0) {
                 item.images.forEach(function(img) {
-                    var formattedProjectImage = HTMLprojectImage.replace("%data%", img);
+                    var formattedProjectImage = HTMLprojectImage.replace(data, img);
                     $(".project-entry:last").append(formattedProjectImage);
                 });
             }
@@ -115,38 +115,40 @@ var education = {
         "degree": "Fashion Arts, 3 year degree",
         "dates": "2002-2005",
         "location": "Toronto, ON, Canada",
-        "major": "Fashion Design"
+        "majors": ["Fashion Design"],
+        "url": "http://www.senecacollege.ca"
     }, {
         "name": "Robert E. Lee Highschool",
         "degree": "Diploma",
         "dates": "1998-2001",
         "location": "Springfield, VA, US",
-        "major": "n/a"
+        "majors": ["n/a"],
+        "url": "http://www.fcps.edu/LeeHS/"
     }],
     "onlineCourses": [{
         "title": "Front-end Web Developer Nanodegree",
         "school": "Udacity",
         "dates": "May 2016 - July 2016",
-        "online_url": "www.udacity.com/"
+        "url": "www.udacity.com/"
     }],
 
     display: function() {
         education.schools.forEach(function(item) {
             $("#education").append(HTMLschoolStart);
-            var formattedSchoolName = HTMLschoolName.replace("%data%", item.name);
-            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", item.degree);
-            var formattedSchoolDates = HTMLschoolDates.replace("%data%", item.dates);
-            var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", item.location);
-            var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", item.major);
+            var formattedSchoolName = HTMLschoolName.replace(data, item.name);
+            var formattedSchoolDegree = HTMLschoolDegree.replace(data, item.degree);
+            var formattedSchoolDates = HTMLschoolDates.replace(data, item.dates);
+            var formattedSchoolLocation = HTMLschoolLocation.replace(data, item.location);
+            var formattedSchoolMajor = HTMLschoolMajor.replace(data, item.major);
             $(".education-entry:last").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor);
         });
 
         education.onlineCourses.forEach(function(item) {
             $(".education-entry:last").append(HTMLonlineClasses);
-            var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", item.title);
-            var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", item.school);
-            var formattedOnlineDates = HTMLonlineDates.replace("%data%", item.dates);
-            var formattedOnlineURL = HTMLonlineURL.replace("%data%", item.online_url);
+            var formattedOnlineTitle = HTMLonlineTitle.replace(data, item.title);
+            var formattedOnlineSchool = HTMLonlineSchool.replace(data, item.school);
+            var formattedOnlineDates = HTMLonlineDates.replace(data, item.dates);
+            var formattedOnlineURL = HTMLonlineURL.replace(data, item.online_url);
             $(".education-entry:last").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
         });
     }
