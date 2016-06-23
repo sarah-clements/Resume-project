@@ -128,7 +128,7 @@ var education = {
     "onlineCourses": [{
         "title": "Front-end Web Developer Nanodegree",
         "school": "Udacity",
-        "dates": "May 2016 - July 2016",
+        "date": "May 2016",
         "url": "www.udacity.com/"
     }],
 
@@ -153,7 +153,7 @@ var education = {
             $(".education-entry:last").append(HTMLonlineClasses);
             var formattedOnlineTitle = HTMLonlineTitle.replace(data, item.title);
             var formattedOnlineSchool = HTMLonlineSchool.replace(data, item.school);
-            var formattedOnlineDates = HTMLonlineDates.replace(data, item.dates);
+            var formattedOnlineDates = HTMLonlineDates.replace(data, item.date);
             var formattedOnlineURL = HTMLonlineURL.replace(data, item.url);
             $(".education-entry:last").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
         });
