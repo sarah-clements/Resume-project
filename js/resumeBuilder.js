@@ -1,4 +1,3 @@
-
 var data = "%data%";
 var bio = {
     "name": "Sarah A Clements",
@@ -11,7 +10,7 @@ var bio = {
         "location": "San Francisco"
     },
     "welcomeMessage": "\"Character - the willingness to accept responsibility for one's own life - is the source from which self-respect springs.\" - Joan Didion",
-    "skills": ["html5", "CSS", "Javascript", "Adobe CreativeSuite"],
+    "skills": ["html5", "CSS", "Javascript", "JQuery", "Bootstrap", "Adobe CreativeSuite"],
     "biopic": "images/Professionalpic1.jpg",
 
     display: function() {
@@ -31,7 +30,7 @@ var bio = {
 
         bio.skills.forEach(function(skill) {
             var formattedSkills = HTMLskills.replace(data, skill);
-            $("#header").append(formattedSkills);
+            $("#skills").append(formattedSkills);
         });
         $("#footerContacts").append(formattedGithub, formattedEmail, formattedLinkedIn);
     }
@@ -44,25 +43,33 @@ var work = {
         "title": "Executive Assistant",
         "dates": "January 2015 - October 2015",
         "location": "San Francisco, CA",
-        "description": "Coordinated workshops, managed wordPress website and blog posts, created grant reports, managed non-profit operational needs, provided executive, accounting and bookkeeping support."
+        "description": "Coordinated workshops, managed wordPress website and " + 
+        "blog posts, created grant reports, managed non-profit operational needs," + 
+        " provided executive, accounting and bookkeeping support."
     }, {
         "employer": "Williams-Sonoma, Inc - Pottery Barn brand",
         "title": "Production and Visual Coordinator",
         "dates": "October 2012 - August 2014",
         "location": "San Francisco, CA",
-        "description": "Coordinated the production of deadline-driven retail print collateral touching all aspects from design, pre-production through to post-press, including liaising with vendors and various departments; assisted other departments with design projects."
+        "description": "Coordinated the production of deadline-driven retail " + 
+        "print collateral touching all aspects from design, pre-production " + 
+        "through to post-press, including liaising with vendors and various " + 
+        "departments; assisted other departments with design projects."
     }, {
         "employer": "Spafax Canada",
         "title": "Sales Services and Media Coordinator",
         "dates": "July 2008 - October 2011",
         "location": "Toronto, ON, Canada",
-        "description": "Provided administrative support to the Director of Sales and Sales and Marketing team; assisted with client presentations and proposals, market research data for various media platforms."
+        "description": "Provided administrative support to the Director of Sales" + 
+        " and Sales and Marketing team; assisted with client presentations and " +
+        "proposals, market research data for various media platforms."
     }, {
         "employer": "Dubwear, Inc",
         "title": "Production Assistant",
         "dates": "December 2006 - January 2008",
         "location": "Toronto, ON, Canada",
-        "description": "Provided administrative and design support to the Creative Director and coordinated the design approval process."
+        "description": "Provided administrative and design support to the Creative" +
+        " Director and coordinated the design approval process."
     }],
 
     display: function() {
@@ -84,16 +91,16 @@ work.display();
 var projects = {
     "projects": [{
         "title": "Portfolio",
-        "date": "May 2016",
+        "dates": "May 2016",
         "description": "Portfolio of Udacity projects",
         "images": ["images/197x148.gif", "images/197x148.gif"]
     }],
 
     display: function() {
+        $("#projects").append(HTMLprojectStart);
         projects.projects.forEach(function(item) {
-            $("#projects").append(HTMLprojectStart);
             var formattedProjectTitle = HTMLprojectTitle.replace(data, item.title);
-            var formattedProjectDates = HTMLprojectDates.replace(data, item.date);
+            var formattedProjectDates = HTMLprojectDates.replace(data, item.dates);
             var formattedProjectDescription = HTMLprojectDescription.replace(data, item.description);
             $(".project-entry:last").append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
 
@@ -128,8 +135,13 @@ var education = {
     "onlineCourses": [{
         "title": "Front-end Web Developer Nanodegree",
         "school": "Udacity",
+        "date": "May 2016 - August 2016",
+        "url": "http://www.udacity.com/"
+    }, {
+        "title": "Web Developer Bootcamp (full stack)",
+        "school": "Udemy",
         "date": "May 2016 - July 2016",
-        "url": "www.udacity.com/"
+        "url": "http://www.udemy.com/the-web-developer-bootcamp/learn/v4/overview"
     }],
 
     display: function() {
@@ -140,26 +152,28 @@ var education = {
             var formattedSchoolDates = HTMLschoolDates.replace(data, item.dates);
             var formattedSchoolLocation = HTMLschoolLocation.replace(data, item.location);
             var formattedSchoolURL = HTMLschoolURL.replace(data, item.url);
-            $(".education-entry:last").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolURL);
+            $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolURL);
             if (item.majors.length > 0) {
-                item.majors.forEach(function(mjr) {
-                    var formattedSchoolMajor = HTMLschoolMajor.replace(data, mjr);
-                    $(".education-entry:last").append(formattedSchoolMajor);
+                            item.majors.forEach(function(mjr) {
+                                var formattedSchoolMajor = HTMLschoolMajor.replace(data, mjr);
+                                $(".education-entry:last").append(formattedSchoolMajor);
                 });
             }
         });
-
+        
+        $("#education").append(HTMLschoolStart);
+        $(".education-entry:last").append(HTMLonlineClasses);
         education.onlineCourses.forEach(function(item) {
-            $(".education-entry:last").append(HTMLonlineClasses);
             var formattedOnlineTitle = HTMLonlineTitle.replace(data, item.title);
             var formattedOnlineSchool = HTMLonlineSchool.replace(data, item.school);
             var formattedOnlineDates = HTMLonlineDates.replace(data, item.date);
             var formattedOnlineURL = HTMLonlineURL.replace(data, item.url);
-            $(".education-entry:last").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+            $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
         });
     }
 };
 education.display();
+
 // JQuery effects
 
 // Internationalize name
